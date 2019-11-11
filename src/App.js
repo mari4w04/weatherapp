@@ -6,7 +6,7 @@ import Weather from './components/Weather'
 import HourlyWeatherPage from './components/HourlyWeatherPage'
 
 
-const API_KEY=process.env.REACT_APP_API_KEY;
+const USE_THIS=process.env.USE_THIS;
 
 class App extends React.Component{
   state = {
@@ -28,8 +28,8 @@ class App extends React.Component{
     e.preventDefault();
     const city = e.target.elements.city.value;
     const country = e.target.elements.country.value;
-    const api_call = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city},${country}&appid=${API_KEY}&units=metric`);
-    const api_call_hourly = await fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${city},${country}&appid=${API_KEY}&units=metric`);
+    const api_call = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city},${country}&appid=${USE_THIS}&units=metric`);
+    const api_call_hourly = await fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${city},${country}&appid=${USE_THIS}&units=metric`);
     const data = await api_call.json();
     const dataHourly = await api_call_hourly.json();
   
